@@ -10,7 +10,7 @@
     "name": "author-name",
     "email": ""
   },
-  "main": "bin/game.js",
+  "main": "ws://localhost:8087",
   "tags": [],
   "scene": {
     "parcels": ["0,0"],

@@ -15,7 +15,10 @@
   "devDependencies": {
     "@dcl/eslint-config": "^1.0.1",
     "@dcl/rpc": "^1.0.1",
-    "decentraland-ecs": "latest",
+    "@types/cors": "^2.8.12",
+    "@types/node": "^18.0.3",
+    "cors": "^2.8.5",
+    "decentraland-ecs": "^6.11.3",
     "decentraland-rpc": "^3.1.9"
   },
   "engines": {

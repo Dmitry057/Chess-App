@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outFile": "./bin/game.js",
+    "outFile": "ws://localhost:8087",
     "allowJs": true,
     "strict": true
   },

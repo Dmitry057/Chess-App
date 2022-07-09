@@ -1,5 +1,5 @@
 import { createElement, ScriptableScene } from "decentraland-api"
-import store, { initSquares, squareClick, registerPlayer } from './Store'
+import store, { /*initSquares,*/ squareClick, registerPlayer } from './Store'
 
 const modelsById: { [key: string]: string } = {
   B: 'assets/LP Bishop_White.gltf',
@@ -31,12 +31,12 @@ export default class Chess extends ScriptableScene {
       } = state
       if (elementId === 'register-white') {
         if (!playerBlack) {
-          store.dispatch(initSquares()) // let the first player who registers init the board
+          //store.dispatch(initSquares()) // let the first player who registers init the board
         }
         store.dispatch(registerPlayer(this.id, true))
       } else if (elementId === 'register-black') {
         if (!playerWhite) {
-          store.dispatch(initSquares()) // let the first player who registers init the board
+         // store.dispatch(initSquares()) // let the first player who registers init the board
         }
         store.dispatch(registerPlayer(this.id, false))
       } else if (elementId != null) {
