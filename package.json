@@ -1,5 +1,5 @@
 {
-  "name": "react-chess-app",
+  "name": "react-hess-app",
   "version": "1.0.0",
   "description": "Redux-react example",
   "main": "index.js",
@@ -7,8 +7,7 @@
     "test": "mocha --compilers js:babel-core/register \"tests/**/*.test.js\"",
     "server": "webpack-dev-server",
     "api": "node api.js",
-    "all": "npm-run-all --parallel server api",
-    "build": "webpack"
+    "all": "npm-run-all --parallel server api"
   },
   "repository": {
     "type": "git",
