@@ -1,3 +1,1 @@
-import {init} from 'scene/server/index'
-
-init()
+let wss = new WebSocket('ws://localhost:8087')

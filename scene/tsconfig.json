@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "outFile": "ws://localhost:8087",
-    "allowJs": true,
-    "strict": true
-  },
-  "include": ["src/**/*.ts"],
-  "extends": "./node_modules/decentraland-ecs/types/tsconfig.json"
-}

@@ -8,5 +8,5 @@ const {
   unregisterPlayer
 } = require('../../../src/modules/match/actions')
 store.dispatch(initSquares())
-export { /*initSquares,*/ squareClick, registerPlayer, unregisterPlayer }
+export { initSquares, squareClick, registerPlayer, unregisterPlayer }
 export default store

@@ -18,5 +18,8 @@
     "traceur": "0.0.111",
     "typescript": "^2.7.2",
     "ws": "^8.8.0"
+  },
+  "dependencies": {
+    "csp-header": "^5.1.0"
   }
 }

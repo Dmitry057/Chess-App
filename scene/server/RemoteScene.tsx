@@ -1,5 +1,5 @@
 import { createElement, ScriptableScene } from "decentraland-api"
-import store, { /*initSquares,*/ squareClick, registerPlayer } from './Store'
+import store, { initSquares, squareClick, registerPlayer } from './Store'
 
 const modelsById: { [key: string]: string } = {
   B: 'assets/LP Bishop_White.gltf',
@@ -20,8 +20,9 @@ const getSquareId = (elementId: string) => elementId.split('-')[0]
 
 export default class Chess extends ScriptableScene {
   public id: number = Math.random()
-
+  
   sceneDidMount() {
+    
     this.eventSubscriber.on('click', event => {
       const { elementId } = event.data
       const state = store.getState()
@@ -31,16 +32,17 @@ export default class Chess extends ScriptableScene {
       } = state
       if (elementId === 'register-white') {
         if (!playerBlack) {
-          //store.dispatch(initSquares()) // let the first player who registers init the board
+          store.dispatch(initSquares()) // let the first player who registers init the board
         }
         store.dispatch(registerPlayer(this.id, true))
       } else if (elementId === 'register-black') {
         if (!playerWhite) {
-         // store.dispatch(initSquares()) // let the first player who registers init the board
+          store.dispatch(initSquares()) // let the first player who registers init the board
         }
         store.dispatch(registerPlayer(this.id, false))
       } else if (elementId != null) {
-        // players can click squares only on their turn
+        
+        //players can click squares only on their turn
         if (whiteTurn && this.id !== playerWhite) return
         if (!whiteTurn && this.id !== playerBlack) return
 
@@ -55,6 +57,7 @@ export default class Chess extends ScriptableScene {
   }
 
   renderBoard() {
+    console.log('board rendered')
     return (
       <entity
         position={{
@@ -163,6 +166,7 @@ export default class Chess extends ScriptableScene {
   }
 
   async render() {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAA")
     const status = store.getState().match.status
     return (
       <scene>
