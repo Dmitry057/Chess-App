@@ -1,3 +1,4 @@
+
 const store = require('../../../src/store').default
 const {
   initSquares,
