@@ -1,1 +1,1 @@
-let wss = new WebSocket('ws://localhost:8087')
+let ws = new WebSocket('wss://dima-vps.maff.io/')
