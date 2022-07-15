@@ -7,11 +7,12 @@
     "test": "mocha --compilers js:babel-core/register \"tests/**/*.test.js\"",
     "server": "webpack-dev-server",
     "api": "node api.js",
-    "all": "npm-run-all --parallel server api"
+    "all": "npm-run-all --parallel server api",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zack/react-chess-app.git"
+    "url": "git+https://github.com/Dmitry057/Chess-App"
   },
   "author": "Zack Pudil",
   "license": "MIT",
