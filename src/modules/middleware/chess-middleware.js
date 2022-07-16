@@ -4,7 +4,7 @@ import {
   MOVE_PIECE,
   TAKE_PIECE,
   addTakenPiece
-} from '../../modules/pieces/actions'
+} from '../pieces/actions'
 import {
   highlightSquare,
   selectSquare,
@@ -12,8 +12,8 @@ import {
   clearCheck,
   addPiece,
   removePiece
-} from '../../modules/squares/actions'
-import { analyzeBoard, addMove } from '../../modules/game/actions'
+} from '../squares/actions'
+import { analyzeBoard, addMove } from '../game/actions'
 import engine from '../../chess/engine'
 
 export default store => next => action => {

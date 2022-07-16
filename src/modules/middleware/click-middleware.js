@@ -1,6 +1,6 @@
 import { BLACK, WHITE, NO_PIECE_ID } from '../../chess/board'
-import { SQUARE_CLICK } from '../../modules/squares/actions'
-import { routePiece, movePiece, takePiece } from '../../modules/pieces/actions'
+import { SQUARE_CLICK } from '../squares/actions'
+import { routePiece, movePiece, takePiece } from '../pieces/actions'
 
 export default store => next => action => {
   switch (action.type) {

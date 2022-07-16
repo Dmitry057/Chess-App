@@ -17,13 +17,13 @@ import {
   CASTLE_QUEEN_SIDE,
   castleKingSide,
   castleQueenSide
-} from '../../modules/game/actions'
+} from '../game/actions'
 
 import {
   addPiece,
   removePiece,
   checkSquare
-} from '../../modules/squares/actions'
+} from '../squares/actions'
 import {
   wasKingCastle,
   wasQueenCastle,

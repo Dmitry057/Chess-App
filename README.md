@@ -1,11 +1,11 @@
-# redux-chess-app
-An example redux-react application
+# chess-app
+An example application
 
 ```
 npm install
 npm run server
 ```
-Open browser to http://localhost:8080/
+Open browser to dima-vps.maff.io
 
 To run tests:
 ```
