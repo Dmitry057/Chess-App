@@ -29,6 +29,10 @@
     "yarn": "please use npm"
   },
   "dependencies": {
+    "@dcl/ecs-scene-utils": "^1.7.5",
     "ws": "^4.0.0"
-  }
+  },
+  "bundledDependencies": [
+    "@dcl/ecs-scene-utils"
+  ]
 }
