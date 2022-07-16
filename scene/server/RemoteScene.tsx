@@ -21,6 +21,7 @@ const getSquareId = (elementId: string) => elementId.split('-')[0]
 export default class Chess extends ScriptableScene {
   public id: number = Math.random()
   
+
   sceneDidMount() {
     
     this.eventSubscriber.on('click', event => {
@@ -141,6 +142,7 @@ export default class Chess extends ScriptableScene {
 
   renderIdle() {
     const { playerWhite, playerBlack } = store.getState().match
+
     return (
       <entity>
         <gltf-model
@@ -166,6 +168,7 @@ export default class Chess extends ScriptableScene {
 
   async render() {
     const status = store.getState().match.status
+    console.log("Heey: 5128")
     return (
       <scene>
         {status === 'idle' ? this.renderIdle() : this.renderBoard()}
