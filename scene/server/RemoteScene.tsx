@@ -57,7 +57,6 @@ export default class Chess extends ScriptableScene {
   }
 
   renderBoard() {
-    console.log('board rendered')
     return (
       <entity
         position={{
@@ -166,7 +165,6 @@ export default class Chess extends ScriptableScene {
   }
 
   async render() {
-    console.log("AAAAAAAAAAAAAAAAAAAAAAA")
     const status = store.getState().match.status
     return (
       <scene>

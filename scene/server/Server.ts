@@ -16,8 +16,7 @@ const server = createServer(app)
 const wss = new WebSocketServer({ server })
 
 wss.on('connection', function connection(ws, req) {
-  const client = new RemoteScene(AdaptedWebSocketTransport(ws))
-  console.log('ну в теории remoteScene запущена')
+  const client = new RemoteScene(AdaptedWebSocketTransport(ws)) 
   client.on('error', (err: Error) => {
     console.error(err)
     ws.close()
