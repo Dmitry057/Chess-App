@@ -58,6 +58,7 @@ export default class Chess extends ScriptableScene {
   }
 
   renderBoard() {
+    console.log('render board')
     return (
       <entity
         position={{
