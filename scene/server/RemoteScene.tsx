@@ -168,7 +168,6 @@ export default class Chess extends ScriptableScene {
 
   async render() {
     const status = store.getState().match.status
-    console.log("Heey: 5128")
     return (
       <scene>
         {status === 'idle' ? this.renderIdle() : this.renderBoard()}
