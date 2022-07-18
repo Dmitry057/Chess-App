@@ -59,7 +59,6 @@ export default class Chess extends ScriptableScene {
   }
 
   renderBoard() {
-    console.log('render board')
     return (
       <entity
         position={{
@@ -179,7 +178,7 @@ export default class Chess extends ScriptableScene {
         expand:{ x: 496, y: 128, width: 128, height: 128 }
       }
     });
-    const status = store.getState().match.status
+    // const status = store.getState().match.status
     return (
       <scene>
         <basic-material
@@ -192,7 +191,7 @@ export default class Chess extends ScriptableScene {
             position={{x:0,y:1,z:1}}
             />
         </entity>
-        {status === 'idle' ? this.renderIdle() : this.renderBoard()}
+        {/* {status === 'idle' ? this.renderIdle() : this.renderBoard()} */ this.renderBoard()}
       </scene>
     )
   }
