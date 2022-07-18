@@ -1,4 +1,6 @@
+let wss;
 Connect()
+
 function Connect_From_Button()
 {
 let cube = new Entity()
@@ -11,12 +13,11 @@ engine.addEntity(cube)
 cube.addComponent(
     new OnClick(() => {
         engine.removeEntity(cube)
-        Connect()
+        wss = Connect()
     }))
 }
 
 function Connect()
 {
-    let wss = new WebSocket('wss://dima-vps.maff.io')
-    log('test')
+    return new WebSocket('wss://dima-vps.maff.io')
 }

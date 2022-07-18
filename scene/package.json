@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@dcl/ecs-scene-utils": "^1.7.5",
+    "dcl-sprites": "^1.0.0",
     "ws": "^4.0.0"
   },
   "bundledDependencies": [

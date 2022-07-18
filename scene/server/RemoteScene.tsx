@@ -1,5 +1,6 @@
 import { createElement, ScriptableScene } from "decentraland-api"
 import store, { initSquares, squareClick, registerPlayer } from './Store'
+import { createAtlas } from 'dcl-sprites'
 
 const modelsById: { [key: string]: string } = {
   B: 'assets/LP Bishop_White.gltf',
@@ -27,7 +28,6 @@ export default class Chess extends ScriptableScene {
     this.eventSubscriber.on('click', event => {
       const { elementId } = event.data
       const state = store.getState()
-      console.log('Subscribed')
       const {
         game: { whiteTurn },
         match: { playerWhite, playerBlack }
@@ -169,10 +169,29 @@ export default class Chess extends ScriptableScene {
   }
 
   async render() {
+    const UIPlane = createAtlas({
+      material: "#material",
+      textureSize: { width: 1000, height: 550 },
+      frames: {
+        play: { x: 26, y: 128, width: 128, height: 128},
+        start: { x: 183, y: 128, width: 128, height: 128 },
+        exit: { x: 346, y: 128, width: 128, height: 128 },
+        expand:{ x: 496, y: 128, width: 128, height: 128 }
+      }
+    });
     const status = store.getState().match.status
     return (
       <scene>
-        {console.log('teeest')}
+        <basic-material
+          id="material"
+          texture="images/scene-thumbnail.png"
+          />
+        <entity position={{x:5,y:1,z:5}}>
+          <UIPlane
+            frame="play"
+            position={{x:0,y:1,z:1}}
+            />
+        </entity>
         {status === 'idle' ? this.renderIdle() : this.renderBoard()}
       </scene>
     )
