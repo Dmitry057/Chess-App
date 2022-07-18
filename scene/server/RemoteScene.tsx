@@ -27,6 +27,7 @@ export default class Chess extends ScriptableScene {
     this.eventSubscriber.on('click', event => {
       const { elementId } = event.data
       const state = store.getState()
+      console.log('Subscribed')
       const {
         game: { whiteTurn },
         match: { playerWhite, playerBlack }
