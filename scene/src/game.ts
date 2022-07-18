@@ -19,5 +19,6 @@ cube.addComponent(
 
 function Connect()
 {
+    log('connected to WebSocket')
     return new WebSocket('wss://dima-vps.maff.io')
 }

@@ -25,37 +25,37 @@ export default class Chess extends ScriptableScene {
 
   sceneDidMount() {
     
-    this.eventSubscriber.on('click', event => {
-      const { elementId } = event.data
-      const state = store.getState()
-      const {
-        game: { whiteTurn },
-        match: { playerWhite, playerBlack }
-      } = state
-      if (elementId === 'register-white') {
-        if (!playerBlack) {
-          store.dispatch(initSquares()) // let the first player who registers init the board
-        }
-        store.dispatch(registerPlayer(this.id, true))
-      } else if (elementId === 'register-black') {
-        if (!playerWhite) {
-          store.dispatch(initSquares()) // let the first player who registers init the board
-        }
-        store.dispatch(registerPlayer(this.id, false))
-      } else if (elementId != null) {
+    // this.eventSubscriber.on('click', event => {
+    //   const { elementId } = event.data
+    //   const state = store.getState()
+    //   const {
+    //     game: { whiteTurn },
+    //     match: { playerWhite, playerBlack }
+    //   } = state
+    //   if (elementId === 'register-white') {
+    //     if (!playerBlack) {
+    //       store.dispatch(initSquares()) // let the first player who registers init the board
+    //     }
+    //     store.dispatch(registerPlayer(this.id, true))
+    //   } else if (elementId === 'register-black') {
+    //     if (!playerWhite) {
+    //       store.dispatch(initSquares()) // let the first player who registers init the board
+    //     }
+    //     store.dispatch(registerPlayer(this.id, false))
+    //   } else if (elementId != null) {
         
-        //players can click squares only on their turn
-        if (whiteTurn && this.id !== playerWhite) return
-        if (!whiteTurn && this.id !== playerBlack) return
+    //     //players can click squares only on their turn
+    //     if (whiteTurn && this.id !== playerWhite) return
+    //     if (!whiteTurn && this.id !== playerBlack) return
 
-        // click on square
-        const squareId = getSquareId(elementId)
-        const square = state.squares.find(
-          (square: any) => square.id === squareId
-        )
-        store.dispatch(squareClick(square.id, square.pieceId, square.color))
-      }
-    })
+    //     // click on square
+    //     const squareId = getSquareId(elementId)
+    //     const square = state.squares.find(
+    //       (square: any) => square.id === squareId
+    //     )
+    //     store.dispatch(squareClick(square.id, square.pieceId, square.color))
+    //   }
+    // })
   }
 
   renderBoard() {
