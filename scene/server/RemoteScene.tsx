@@ -1,5 +1,5 @@
 import { createElement, ScriptableScene } from "decentraland-api"
-import store, { initSquares, squareClick, registerPlayer } from './Store'
+import store, { /*initSquares, squareClick, registerPlayer */} from './Store'
 import { createAtlas } from 'dcl-sprites'
 
 const modelsById: { [key: string]: string } = {
@@ -17,7 +17,7 @@ const modelsById: { [key: string]: string } = {
   r: 'assets/LP Rook_Black.gltf'
 }
 
-const getSquareId = (elementId: string) => elementId.split('-')[0]
+//const getSquareId = (elementId: string) => elementId.split('-')[0]
 
 export default class Chess extends ScriptableScene {
   public id: number = Math.random()
