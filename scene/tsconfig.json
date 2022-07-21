@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outFile": "./bin/game.js",
+    "outFile": "bin/game.js",
     "allowJs": true,
     "paths": {
       "@dcl/ecs-scene-utils": [
@@ -15,4 +15,6 @@
   ],
   "extends": "./node_modules/decentraland-ecs/types/tsconfig.json",
   "compileOnSave": false
+  ,
+  "exclude": ["node_modules"]
 }

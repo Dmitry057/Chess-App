@@ -1,6 +1,5 @@
 import { createElement, ScriptableScene } from "decentraland-api"
-import store, { /*initSquares, squareClick, registerPlayer */} from './Store'
-import { createAtlas } from 'dcl-sprites'
+import store, { initSquares, squareClick, registerPlayer } from './Store'
 
 const modelsById: { [key: string]: string } = {
   B: 'assets/LP Bishop_White.gltf',
@@ -17,7 +16,7 @@ const modelsById: { [key: string]: string } = {
   r: 'assets/LP Rook_Black.gltf'
 }
 
-//const getSquareId = (elementId: string) => elementId.split('-')[0]
+const getSquareId = (elementId: string) => elementId.split('-')[0]
 
 export default class Chess extends ScriptableScene {
   public id: number = Math.random()
@@ -25,37 +24,37 @@ export default class Chess extends ScriptableScene {
 
   sceneDidMount() {
     
-    // this.eventSubscriber.on('click', event => {
-    //   const { elementId } = event.data
-    //   const state = store.getState()
-    //   const {
-    //     game: { whiteTurn },
-    //     match: { playerWhite, playerBlack }
-    //   } = state
-    //   if (elementId === 'register-white') {
-    //     if (!playerBlack) {
-    //       store.dispatch(initSquares()) // let the first player who registers init the board
-    //     }
-    //     store.dispatch(registerPlayer(this.id, true))
-    //   } else if (elementId === 'register-black') {
-    //     if (!playerWhite) {
-    //       store.dispatch(initSquares()) // let the first player who registers init the board
-    //     }
-    //     store.dispatch(registerPlayer(this.id, false))
-    //   } else if (elementId != null) {
+    this.eventSubscriber.on('click', event => {
+      const { elementId } = event.data
+      const state = store.getState()
+      const {
+        game: { whiteTurn },
+        match: { playerWhite, playerBlack }
+      } = state
+      if (elementId === 'register-white') {
+        if (!playerBlack) {
+          store.dispatch(initSquares()) // let the first player who registers init the board
+        }
+        store.dispatch(registerPlayer(this.id, true))
+      } else if (elementId === 'register-black') {
+        if (!playerWhite) {
+          store.dispatch(initSquares()) // let the first player who registers init the board
+        }
+        store.dispatch(registerPlayer(this.id, false))
+      } else if (elementId != null) {
         
-    //     //players can click squares only on their turn
-    //     if (whiteTurn && this.id !== playerWhite) return
-    //     if (!whiteTurn && this.id !== playerBlack) return
+        //players can click squares only on their turn
+        if (whiteTurn && this.id !== playerWhite) return
+        if (!whiteTurn && this.id !== playerBlack) return
 
-    //     // click on square
-    //     const squareId = getSquareId(elementId)
-    //     const square = state.squares.find(
-    //       (square: any) => square.id === squareId
-    //     )
-    //     store.dispatch(squareClick(square.id, square.pieceId, square.color))
-    //   }
-    // })
+        // click on square
+        const squareId = getSquareId(elementId)
+        const square = state.squares.find(
+          (square: any) => square.id === squareId
+        )
+        store.dispatch(squareClick(square.id, square.pieceId, square.color))
+      }
+    })
   }
 
   renderBoard() {
@@ -168,30 +167,11 @@ export default class Chess extends ScriptableScene {
   }
 
   async render() {
-    const UIPlane = createAtlas({
-      material: "#material",
-      textureSize: { width: 1000, height: 550 },
-      frames: {
-        play: { x: 26, y: 128, width: 128, height: 128},
-        start: { x: 183, y: 128, width: 128, height: 128 },
-        exit: { x: 346, y: 128, width: 128, height: 128 },
-        expand:{ x: 496, y: 128, width: 128, height: 128 }
-      }
-    });
-    // const status = store.getState().match.status
+    
+    const status = store.getState().match.status
     return (
       <scene>
-        <basic-material
-          id="material"
-          texture="images/scene-thumbnail.png"
-          />
-        <entity position={{x:5,y:1,z:5}}>
-          <UIPlane
-            frame="play"
-            position={{x:0,y:1,z:1}}
-            />
-        </entity>
-        {/* {status === 'idle' ? this.renderIdle() : this.renderBoard()} */ this.renderBoard()}
+        {status === 'idle' ? this.renderIdle() : this.renderBoard()}
       </scene>
     )
   }

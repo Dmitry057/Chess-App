@@ -58,7 +58,6 @@ export function AdaptedWebSocketTransport(socket: IAdaptedWebSocket): ScriptingT
                 colno: err.target,
                 error: err.error,
                 filename: err.type,
-                lineno: err.type,//err.lineno,
                 message: err.message
               })
             )
